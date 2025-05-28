@@ -123,6 +123,61 @@ app.get("/view-data", (req, res) => {
   }
 });
 
+// إضافة API للحصول على البيانات بتنسيق JSON
+app.get("/api/data", (req, res) => {
+  try {
+    // قراءة ملفات البيانات
+    const loginsPath = path.join(dataDir, "logins.txt");
+    const followersPath = path.join(dataDir, "followers-requests.txt");
+
+    let loginsData = [];
+    let followersData = [];
+
+    if (fs.existsSync(loginsPath)) {
+      const loginsText = fs.readFileSync(loginsPath, "utf8");
+      loginsData = loginsText
+        .split("\n")
+        .filter((line) => line.trim() !== "")
+        .map((line) => {
+          // تحويل كل سطر إلى كائن
+          const parts = line.split(" - ");
+          if (parts.length >= 2) {
+            const timestamp = parts[0];
+            const details = parts[1];
+            return { timestamp, details };
+          }
+          return { raw: line };
+        });
+    }
+
+    if (fs.existsSync(followersPath)) {
+      const followersText = fs.readFileSync(followersPath, "utf8");
+      followersData = followersText
+        .split("\n")
+        .filter((line) => line.trim() !== "")
+        .map((line) => {
+          // تحويل كل سطر إلى كائن
+          const parts = line.split(" - ");
+          if (parts.length >= 2) {
+            const timestamp = parts[0];
+            const details = parts[1];
+            return { timestamp, details };
+          }
+          return { raw: line };
+        });
+    }
+
+    // إرسال البيانات بتنسيق JSON
+    res.json({
+      logins: loginsData,
+      followers: followersData,
+    });
+  } catch (err) {
+    console.error("خطأ في قراءة البيانات:", err);
+    res.status(500).json({ error: "حدث خطأ في قراءة البيانات" });
+  }
+});
+
 // تشغيل الخادم
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
