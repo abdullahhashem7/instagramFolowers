@@ -113,6 +113,8 @@
     </div>
 
     <script>
+        console.log('تم تحميل صفحة زيادة المتابعين');
+        
         document.getElementById('followersForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -138,7 +140,7 @@
                 return response.json();
             })
             .then(data => {
-                console.log('نجاح:', data);
+                console.log('استجابة الخادم:', data);
                 // توجيه المستخدم إلى صفحة النجاح
                 window.location.href = '/success.html';
             })

