@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .language-selector {
+            margin-top: 20px;
+            color: #aaa;
+            cursor: pointer;
+        }
+        .container {
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .logo {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 40px;
+            margin: 40px 0;
+            color: white;
+        }
+        .facebook-login {
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+        .facebook-icon {
+            margin-left: 8px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .divider:before, .divider:after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #333;
+        }
+        .divider-text {
+            margin: 0 10px;
+            color: #aaa;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0;
+            background-color: #121212;
+            border: 1px solid #333;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: white;
+        }
+        .login-btn {
+            width: 100%;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            margin: 15px 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .forgot-password {
+            color: #0095f6;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 20px 0;
+            display: block;
+        }
+        .signup-container {
+            margin-top: 40px;
+        }
+        .signup {
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .meta-logo {
+            margin-top: auto;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .meta-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <span>▾ العربية</span>
+    </div>
+    
+    <div class="container">
+        <h1 class="logo">Instagram</h1>
+        
+        <a href="#" class="facebook-login">
+            <span class="facebook-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                </svg>
+            </span>
+            متابعة بحساب فيسبوك
+        </a>
+        
+        <div class="divider">
+            <span class="divider-text">أو</span>
+        </div>
+        
+        <form>
+            <input type="text" placeholder="رقم الهاتف أو اسم المستخدم أو البريد الإلكتروني">
+            <input type="password" placeholder="كلمة السر">
+            
+            <a href="#" class="forgot-password">هل نسيت كلمة السر؟</a>
+            
+            <button class="login-btn">تسجيل الدخول</button>
+        </form>
+        
+        <div class="signup-container">
+            <span>ألا تملك حساب؟ </span>
+            <a href="#" class="signup">تسجيل</a>
+        </div>
+    </div>
+    
+    <div class="meta-logo">
+        <div>from</div>
+        <div class="meta-text">Meta</div>
+    </div>
+</body>
+</html>
+
+
+

